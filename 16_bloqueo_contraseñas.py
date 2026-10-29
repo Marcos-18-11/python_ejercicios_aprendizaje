@@ -2,17 +2,22 @@
 # si no , se le vuelve a preguntar, al tercer intento le dice que no es un usuario válido.
 
 contraseña_correcta=123
-intentos=2
+intentos=3
 acertado=False
 
 
-while acertado==False and intentos !=0:
+while acertado==False and intentos>0:
     contraseña_introducida=int(input("Introduzca su contraseña"))
+    
     if contraseña_introducida==contraseña_correcta:
         print("Usuario válido")
+        print("Bienvenido")
         acertado=True
-    elif contraseña_introducida!=contraseña_correcta and intentos>0:
+        
+    else:
         intentos=intentos-1
-        print("Contraseña incorrecta, vuelva a intentarlo")
-    elif contraseña_introducida!=contraseña_correcta and intentos<=0:
-        print("Usuario bloqueado")
+        print("Contraseña incorrecta")
+        
+
+if intentos==0:
+    print("Usuario bloqueado")
